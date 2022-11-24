@@ -12,6 +12,7 @@ import { LineOfBusinessService } from '../lineOfBusiness.service';
 })
 export class LineOfBusinessDetailComponent implements OnInit {
   lineOfBusiness: LineOfBusiness | undefined;
+  quotes: number | undefined; /* NEW */
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class LineOfBusinessDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLineOfBusiness();
+    this.getQuotesForLineOfBusiness() /* NEW */
   }
 
   getLineOfBusiness(): void {
@@ -28,6 +30,14 @@ export class LineOfBusinessDetailComponent implements OnInit {
     this.lineOfBusinessService.getLineOfBusiness(id)
       .subscribe(lineOfBusiness => this.lineOfBusiness = lineOfBusiness);
   }
+
+  // NEW START -
+  getQuotesForLineOfBusiness(): void {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    this.lineOfBusinessService.getQuotesForLineOfBusiness(id)
+      .subscribe(n => this.quotes = n.length);
+  }
+  // NEW END -
 
   goBack(): void {
     this.location.back();
