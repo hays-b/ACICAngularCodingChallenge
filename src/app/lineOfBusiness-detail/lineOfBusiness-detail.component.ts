@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; /* NEW 'Router' */
 import { Location } from '@angular/common';
 
 import { LineOfBusiness } from '../LineOfBusiness';
@@ -15,12 +15,15 @@ export class LineOfBusinessDetailComponent implements OnInit {
   quotes: number | undefined; /* NEW */
 
   constructor(
+    private router: Router, /* NEW */
     private route: ActivatedRoute,
     private lineOfBusinessService: LineOfBusinessService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
+    // Because we are passing down a changed state when navigating between popular lines of business, we must tell the router to not reuse the previous details component
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false; /* NEW */
     this.getLineOfBusiness();
     this.getQuotesForLineOfBusiness() /* NEW */
   }

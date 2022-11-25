@@ -10,7 +10,7 @@ import { tap, map, groupBy, mergeMap, toArray } from 'rxjs/operators'; /* NEW */
 })
 export class DashboardComponent implements OnInit {
   linesOfBusiness: LineOfBusiness[] = [];
-  quotes: RecentQuote[] = []; /* NEW */
+  // quotes: RecentQuote[] = []; /* NEW */
   highestQuotes: number[] = []; /* NEW */
 
   constructor(private lineOfBusinessService: LineOfBusinessService) {}
