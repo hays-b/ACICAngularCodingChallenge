@@ -56,8 +56,8 @@ export class LineOfBusinessService {
   getQuotes(): Observable<RecentQuote[]> {
     const url = this.recentQuotesUrl;
     return this.http.get<RecentQuote[]>(url).pipe(
-      tap((_) => this.log(`fetched recentQuotes`)),
-      catchError(this.handleError<RecentQuote[]>(`recentQuotes`))
+      tap((_) => this.log(`fetched recent quotes`)),
+      catchError(this.handleError<RecentQuote[]>(`recent quotes`))
     );
   }
 
