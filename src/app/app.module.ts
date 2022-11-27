@@ -9,6 +9,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { LinesOfBusinessTableComponent } from './linesOfBusiness-table/linesOfBusiness-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LineOfBusinessDetailComponent } from './lineOfBusiness-detail/lineOfBusiness-detail.component';
 import { LineOfBusinessComponent } from './linesOfBusiness/linesOfBusiness.component';
@@ -31,6 +32,7 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   declarations: [
     AppComponent,
+    LinesOfBusinessTableComponent,
     DashboardComponent,
     LineOfBusinessDetailComponent,
     LineOfBusinessComponent,

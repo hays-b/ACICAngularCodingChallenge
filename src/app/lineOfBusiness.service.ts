@@ -4,13 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { LineOfBusiness, RecentQuote } from './LineOfBusiness'; /* NEW "RecentQuote" */
+import { LineOfBusiness, RecentQuote } from './LineOfBusiness';
 import { MessageService } from './message.service';
 
 @Injectable({ providedIn: 'root' })
 export class LineOfBusinessService {
   private lineOfBusinessUrl = 'api/linesOfBusiness'; // URL to web api
-  private recentQuotesUrl = 'api/recentQuotes'; /* NEW */
+  private recentQuotesUrl = 'api/recentQuotes';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -51,7 +51,6 @@ export class LineOfBusinessService {
     );
   }
 
-  // NEW START -
   /** GET quotes. Will 404 if id not found */
   getQuotes(): Observable<RecentQuote[]> {
     const url = this.recentQuotesUrl;
@@ -71,24 +70,6 @@ export class LineOfBusinessService {
       )
     );
   }
-  // /** GET lines of business whose id matches */
-  // getLinesOfBusinessById(ids: number[]): Observable<LineOfBusiness[]> {
-  // const stringIds = ids.join(',')
-  //   return this.http
-  //     .get<LineOfBusiness[]>(`${this.lineOfBusinessUrl}/?id=13`)
-  //     .pipe(
-  //       tap(console.log),
-  //       tap((x) =>
-  //         x.length
-  //           ? this.log(`found line of business matching "${stringIds}"`)
-  //           : this.log(`no lines of business matching "${stringIds}"`)
-  //       ),
-  //       catchError(
-  //         this.handleError<LineOfBusiness[]>('searchLinesOfBusiness', [])
-  //       )
-  //     );
-  // }
-  // NEW END -
 
   /** GET lines of business whose name contains search term */
   searchLinesOfBusiness(term: string): Observable<LineOfBusiness[]> {

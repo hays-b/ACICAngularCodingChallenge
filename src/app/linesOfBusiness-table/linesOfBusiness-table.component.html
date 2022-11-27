@@ -1,0 +1,10 @@
+<table class="linesOfBusiness-table">
+  <thead>
+    <th>Lines Of Business</th>
+    <th>Quotes</th>
+  </thead>
+  <tbody *ngFor="let lineOfBusiness of linesOfBusinessWithQuotes">
+    <td>{{ lineOfBusiness.name }}</td>
+    <td>{{ lineOfBusiness.quotes }}</td>
+  </tbody>
+</table>

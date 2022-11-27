@@ -4,10 +4,15 @@ export interface LineOfBusiness {
   description: string;
 }
 
-// NEW START -
 export interface RecentQuote {
   id: number;
   quoteNumber: string;
   lineOfBusiness: number;
 }
-// NEW END -
+
+export interface LineOfBusinessWithQuotes {
+  id: number;
+  name: string;
+  description: string;
+  quotes: number;
+}
